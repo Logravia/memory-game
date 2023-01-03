@@ -1,15 +1,15 @@
 function CardBox({cards, noteClick}) {
   return (
     <div className="card-box">
-      {cards.map(card => <Card cardData={card} noteClick={noteClick}></Card>)}
+      {cards.map(card => <CardElement cardData={card} noteClick={noteClick} key={card.id}/>)}
     </div>
   )
 }
 
-function Card({ cardData, noteClick }) {
+function CardElement({ cardData, noteClick }) {
   return (
     <figure className="card" onClick={_ => noteClick(cardData.id)}>
-      <img src={cardData.img}
+      <img src={cardData.url}
         alt={cardData.descr}/>
       <figcaption>{cardData.descr}</figcaption>
     </figure>
